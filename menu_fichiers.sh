@@ -22,6 +22,7 @@ function action_fichier ()  {
 				echo -n "Copier $1 vers ? : " 
 				if ! read saisie ; then continue ; fi 
 				cp $1 $saisie
+				break
 				;;
 			Deplacer)
 				echo -n "Deplacer $1 ver ? : " 
