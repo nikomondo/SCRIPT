@@ -1,8 +1,8 @@
-#!/bin/sh
+#! /bin/bash
 
 # recoit arg le nom fichier et propose differentes actions
 
-function action_fichier() {
+function action_fichier ()  {
 	local reponse
 	local saisie
 
@@ -20,12 +20,12 @@ function action_fichier() {
 				;;
 			Copier) 
 				echo -n "Copier $1 vers ? : " 
-				if ! read $saisie ; then continue ; fi 
+				if ! read saisie ; then continue ; fi 
 				cp $1 $saisie
 				;;
 			Deplacer)
 				echo -n "Deplacer $1 ver ? : " 
-				if ! read $saisie ; then continue ; i 
+				if ! read saisie ; then continue ; fi 
 				mv $1 $saisie
 				break
 				;;
@@ -48,7 +48,7 @@ function action_fichier() {
 # elle applele action_fichier() 
 # se termine si on selectione "0" 
 
-function liste_fichier() {
+function liste_fichier  {
 
 
 
@@ -56,13 +56,13 @@ function liste_fichier() {
 	PS3="Fichier à traiter :" 
 	select fichier in * 
 	do
-		if [ -Z $fichier ] ; then 
+		if [ ! -z $fichier ] ; then 
 			action_fichier $fichier 
 			return 0
 		fi 
 
 		if [ "$REPLY" = "0" ] ; then 
-			return 
+			return  1
 		fi 
 
 		echo "Entrez 0 pour quitter" 
