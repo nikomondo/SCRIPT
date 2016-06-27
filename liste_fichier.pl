@@ -11,8 +11,8 @@ my %ficNum;
 
 @ficNum{(0..$#fic)} = (@fic) ; 
 
-say Dumper(\@fic);
-say Dumper(\%ficNum);
+#say Dumper(\@fic);
+#say Dumper(\%ficNum);
 
 foreach my $cle (0..$#fic) {
 	say $cle . " :  " . $ficNum{$cle};
